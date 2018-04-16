@@ -122,10 +122,10 @@ class Dealer(object):
         #self.play_flop()
 
         self.deal_turn()
-        #self.play_turn()
+        self.play_turn()
 
         self.deal_river()
-        #self.play_river()
+        self.play_river()
 
         wins = self.close_hand()
 

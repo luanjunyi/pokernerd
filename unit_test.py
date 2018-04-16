@@ -18,7 +18,7 @@ def simulate():
     for i in xrange(SIM_NUM):
         n = i + 1        
         dealer.play()
-        x = players[0].current_hand_bet / 2.0
+        x = players[0].current_hand_bet * 2
         var += x ** 2
         std = 100.0 / n * np.sqrt(var)
 
