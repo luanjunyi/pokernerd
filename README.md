@@ -2,6 +2,24 @@
 
 I'm building an AI for No Limit Texas Holdem. I'll periodically share some results/resources in this repo.
 
+## Game Logic
+All rules of NLTH is implemented. You can build a bot by creating a subclass of BasePlayer. BasePlayer will just play randomly. The code below will shows how to simulate a 6MAX game with 1000 hands. The blind is 1/2.
+
+```python
+STACK = 200
+NUM_PLAYER = 6
+SIM_NUM = 1000
+players = [BasePlayer(STACK) for _ in xrange(NUM_PLAYER)]
+dealer = Dealer(players)
+print 'simulating %d hands' % SIM_NUM
+
+for i in xrange(SIM_NUM):       
+    dealer.play()
+    
+balances = [p.stack - p.balance for p in dealer.players]
+print balances
+```
+
 ## Allin Equity(allin_equity.dat)
 
 When headsup if allin preflop, there's 1,712,304 boards. I simulated each board every possible 812,175 confrontation. 
